@@ -16,8 +16,7 @@ document.getElementById("balance").innerText = `Баланс: ${balance} ✦`;
 // Функция "В бой"
 function startBattle() {
     alert(`Запуск боя!\nБаланс: ${balance}`);
-    // Можно увеличивать баланс за победу
-    balance += 10; // пример награды
+    balance += Math.floor(Math.random() * 20) + 5; // случайная награда
     localStorage.setItem(`balance_${telegramId}`, balance);
     document.getElementById("balance").innerText = `Баланс: ${balance} ✦`;
 }
