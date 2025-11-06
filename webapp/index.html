@@ -9,44 +9,49 @@
   <style>
     body {
       font-family: 'MedievalSharp', cursive;
-    }
-    .arena-bg {
       background: url('https://i.imgur.com/RtLkzPZ.jpg') no-repeat center center;
       background-size: cover;
+      color: white;
     }
     .card {
-      background: rgba(255,255,255,0.9);
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
       transition: transform 0.2s;
     }
     .card:hover {
       transform: scale(1.05);
     }
+    nav button:hover {
+      background-color: rgba(255, 215, 0, 0.8);
+      color: black;
+    }
   </style>
 </head>
-<body class="arena-bg min-h-screen flex flex-col items-center text-white">
+<body class="min-h-screen flex flex-col">
 
-  <!-- Личный блок -->
-  <div class="mt-10 p-6 card w-80 text-center">
-    <h2 class="text-2xl font-bold mb-2" id="username">Привет, Игрок!</h2>
-    <p class="text-lg">Баланс: <span id="balance">0</span> ✦</p>
-  </div>
+  <!-- Header -->
+  <header class="flex justify-between items-center p-4 bg-black/50 shadow-md">
+    <div id="username" class="text-xl font-bold">Игрок</div>
+    <div id="balance" class="text-xl font-bold">Баланс: 0 ✦</div>
+  </header>
 
-  <!-- Лобби мини-игр -->
-  <h1 class="text-4xl font-bold mt-10 mb-6 drop-shadow-lg">🏰 Лобби игр</h1>
-  <div class="grid grid-cols-2 gap-6 mb-10">
-    <button onclick="playGame('game1')" class="card p-6 text-black font-bold hover:bg-yellow-300">Мини-игра 1</button>
-    <button onclick="playGame('game2')" class="card p-6 text-black font-bold hover:bg-yellow-300">Мини-игра 2</button>
-    <button onclick="playGame('game3')" class="card p-6 text-black font-bold hover:bg-yellow-300">Мини-игра 3</button>
-    <button onclick="playGame('game4')" class="card p-6 text-black font-bold hover:bg-yellow-300">Мини-игра 4</button>
-  </div>
+  <!-- Main зона -->
+  <main class="flex flex-col items-center flex-1 justify-center">
+    <div class="w-80 h-80 bg-gray-800/50 rounded-xl flex items-center justify-center mb-6">
+      <span class="text-2xl">Фото героя</span>
+    </div>
+    <button class="px-8 py-4 bg-yellow-500 rounded-full text-black text-xl font-bold shadow-lg hover:bg-yellow-400 mb-6" onclick="startBattle()">
+      В бой ⚔️
+    </button>
+  </main>
 
-  <!-- Настройки / Профиль -->
-  <div class="flex gap-6 mb-10">
-    <button class="card px-6 py-3 bg-gray-800 hover:bg-gray-700">Профиль</button>
-    <button class="card px-6 py-3 bg-gray-800 hover:bg-gray-700">Настройки</button>
-  </div>
+  <!-- Навигация -->
+  <nav class="flex justify-around p-4 bg-black/50 shadow-inner">
+    <button class="px-6 py-2 card font-bold" onclick="openSection('heroes')">Герои</button>
+    <button class="px-6 py-2 card font-bold" onclick="openSection('shop')">Магазин</button>
+    <button class="px-6 py-2 card font-bold" onclick="openSection('settings')">Настройки</button>
+  </nav>
 
   <script src="script.js"></script>
 </body>
