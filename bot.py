@@ -13,7 +13,7 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
-    web_app = WebAppInfo(url="https://your-railway-url.up.railway.app/")
+    web_app = WebAppInfo(url="https://college-schedule-bot-production.up.railway.app/")
     button = KeyboardButton(text="Открыть Лобби", web_app=web_app)
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(button)
     await message.reply("Привет! Добро пожаловать в Game Lobby!", reply_markup=keyboard)
