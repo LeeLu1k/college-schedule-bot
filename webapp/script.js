@@ -1,14 +1,15 @@
 // Telegram Web App
-const tg = window.Telegram.WebApp;
+const tg = window.Telegram?.WebApp || null;
 
-// Показываем ник пользователя
-document.getElementById("username").innerText = tg.initDataUnsafe?.user?.username || "Игрок";
+// Устанавливаем ник из Telegram
+document.getElementById("username").innerText = tg?.initDataUnsafe?.user?.username || "Игрок";
 
-// Инициализация баланса
+// Баланс
 let balance = 0;
+document.getElementById("balance").innerText = balance;
 
-// Функция запуска игры
+// Функция запуска мини-игры
 function playGame(game) {
-    alert(`Запуск ${game}!\nБаланс пока: ${balance}`);
-    // Здесь можно открыть мини-игру в модальном окне или новом div
+    alert(`Запуск ${game}!\nБаланс: ${balance}`);
+    // Можно открыть мини-игру в новом div или canvas
 }
