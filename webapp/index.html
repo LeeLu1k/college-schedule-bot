@@ -17,14 +17,29 @@
       background: rgba(0,0,0,0.6);
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      transition: transform 0.2s;
+      transition: transform 0.2s, background-color 0.3s, color 0.3s;
     }
     .card:hover {
       transform: scale(1.05);
-    }
-    nav button:hover {
-      background-color: rgba(255, 215, 0, 0.8);
+      background-color: rgba(255,215,0,0.8);
       color: black;
+    }
+    .battle-btn:hover {
+      transform: scale(1.1);
+      background-color: #ffd700;
+      color: black;
+    }
+    .hero {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: url('https://i.imgur.com/6Y0rXMe.png') no-repeat center center;
+      background-size: contain;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
   </style>
 </head>
@@ -38,10 +53,8 @@
 
   <!-- Main зона -->
   <main class="flex flex-col items-center flex-1 justify-center">
-    <div class="w-80 h-80 bg-gray-800/50 rounded-xl flex items-center justify-center mb-6">
-      <span class="text-2xl">Фото героя</span>
-    </div>
-    <button class="px-8 py-4 bg-yellow-500 rounded-full text-black text-xl font-bold shadow-lg hover:bg-yellow-400 mb-6" onclick="startBattle()">
+    <div class="hero mb-6"></div>
+    <button class="px-8 py-4 bg-yellow-500 rounded-full text-black text-xl font-bold shadow-lg battle-btn mb-6" onclick="startBattle()">
       В бой ⚔️
     </button>
   </main>
