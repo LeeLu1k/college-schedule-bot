@@ -14,7 +14,7 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     # Кнопка для открытия Web App
-    web_app = WebAppInfo(url="https://your-railway-url.up.railway.app/")
+    web_app = WebAppInfo(url="college-schedule-bot-production.up.railway.app/")
     button = KeyboardButton(text="Открыть лобби", web_app=web_app)
     keyboard = ReplyKeyboardMarkup(resize_keyboard=True).add(button)
 
