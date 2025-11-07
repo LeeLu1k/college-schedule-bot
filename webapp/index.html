@@ -24,11 +24,6 @@
       background-color: rgba(255,215,0,0.8);
       color: black;
     }
-    .battle-btn:hover {
-      transform: scale(1.1);
-      background-color: #ffd700;
-      color: black;
-    }
     .hero {
       width: 150px;
       height: 150px;
@@ -45,7 +40,19 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
-  <!-- === Выбор персонажа === -->
+  <!-- 🎁 Экран подарка -->
+  <div id="gift-screen" class="hidden min-h-screen flex flex-col items-center justify-center bg-black/80 text-center">
+    <h1 class="text-3xl font-bold mb-6 text-yellow-400">🎁 Подарок новичка!</h1>
+    <p class="mb-4 text-lg">Ты получил 3 героев бесплатно!</p>
+    <div class="flex justify-center gap-6 mb-6">
+      <img src="https://i.imgur.com/ZbS6hTQ.png" class="w-20" alt="Воин">
+      <img src="https://i.imgur.com/kqBja0n.png" class="w-20" alt="Лучница">
+      <img src="https://i.imgur.com/1A7Guq5.png" class="w-20" alt="Маг">
+    </div>
+    <button onclick="claimGift()" class="px-6 py-3 bg-yellow-500 rounded-xl text-black font-bold text-lg hover:bg-yellow-400 transition">Забрать 🎉</button>
+  </div>
+
+  <!-- 🧙 Выбор героя -->
   <div id="choose-hero" class="hidden min-h-screen flex flex-col items-center justify-center bg-black/70 text-center">
     <h1 class="text-3xl font-bold mb-6">Выбери своего героя ⚔️</h1>
     <div class="grid grid-cols-3 gap-6">
@@ -64,15 +71,13 @@
     </div>
   </div>
 
-  <!-- === Лобби === -->
+  <!-- 🏰 Лобби -->
   <div id="app" class="hidden flex-col min-h-screen">
-    <!-- Header -->
     <header class="flex justify-between items-center p-4 bg-black/50 shadow-md">
       <div id="username" class="text-xl font-bold">Игрок</div>
       <div id="balance" class="text-xl font-bold">Баланс: 0 ✦</div>
     </header>
 
-    <!-- Main -->
     <main class="flex flex-col items-center flex-1 justify-center">
       <div id="hero-image" class="hero mb-6"></div>
       <button class="px-8 py-4 bg-yellow-500 rounded-full text-black text-xl font-bold shadow-lg battle-btn mb-6" onclick="startBattle()">
@@ -80,12 +85,19 @@
       </button>
     </main>
 
-    <!-- Навигация -->
     <nav class="flex justify-around p-4 bg-black/50 shadow-inner">
       <button class="px-6 py-2 card font-bold" onclick="openSection('heroes')">Герои</button>
       <button class="px-6 py-2 card font-bold" onclick="openSection('shop')">Магазин</button>
       <button class="px-6 py-2 card font-bold" onclick="openSection('settings')">Настройки</button>
     </nav>
+  </div>
+
+  <!-- ⚠️ Если не Telegram -->
+  <div id="not-telegram" class="hidden flex items-center justify-center min-h-screen text-center text-white bg-black/60">
+    <div>
+      <h1 class="text-3xl font-bold mb-4">⚠️ Открой игру через Telegram</h1>
+      <p class="text-lg">Перейди в бота и нажми <b>«Открыть Лобби»</b></p>
+    </div>
   </div>
 
   <script src="script.js"></script>
